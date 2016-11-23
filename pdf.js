@@ -1,6 +1,6 @@
 var phantom = require('node-phantom-simple');
 		phantom.create({ path: require('phantomjs').path }, function(err,ph) {
-			  return ph.createPage(function(err,page) {
+			  ph.createPage(function(err,page) {
 				  page.settings = {
 					        loadImages: true,
 					        localToRemoteUrlAccessEnabled: true,
@@ -13,14 +13,18 @@ var phantom = require('node-phantom-simple');
 					    	  orientation: 'portrait',
 					    	  margin: '1.5cm',
 					    	  });
-				  return page.open("https://google.com", function(err,status) {
+				page.open("https://cce.cloudapps.cisco.com/guest/assessmentresult/582d579dbcfd1a5a81910341", function(err,status) {
 			      console.log("opened site? ", status);
-				      return page.render('report.pdf', function(err) {
+						page.render('report.pdf', function(err) {
 				    	  if(!err) {
 				    		  console.log('PDF is created in ');	
 				    	  }
 								ph.exit();
 				      });			      
 			    });
+					page.onLoadFinished = function(status) {
+						console.log('Status: ' + status);
+						// Do other things here...
+					};
 			  });
 			});
