@@ -19,8 +19,8 @@ var phantom = require('node-phantom-simple');
 				    	  if(!err) {
 				    		  console.log('PDF is created in ');	
 				    	  }
-				      });
-			      ph.exit();
+								ph.exit();
+				      });			      
 			    });
 			  });
 			});
