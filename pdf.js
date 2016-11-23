@@ -13,7 +13,7 @@ var phantom = require('node-phantom-simple');
 					    	  orientation: 'portrait',
 					    	  margin: '1.5cm',
 					    	  });
-				  return page.open("http://kujan.cisco.com:8080/guest/assessmentresult/58356d7cb71b5a484b8827c6", function(err,status) {
+				  return page.open("http://kujan.cisco.com:8080/guest/assessmentresult/58356d7cb71b5a484b8827c6/true", function(err,status) {
 			      console.log("opened site? ", status);
 				      return page.render('packtpub.pdf', function(err) {
 				    	  if(!err) {
