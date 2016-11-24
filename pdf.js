@@ -5,7 +5,8 @@ var phantom = require('node-phantom-simple');
 					        loadImages: true,
 					        localToRemoteUrlAccessEnabled: true,
 					        javascriptEnabled: true,
-					        loadPlugins: false
+					        loadPlugins: false,
+							resourceTimeout : 2000
 					       };
 					      page.set('viewportSize', { width: 1200, height: 1000 });
 					      page.set('paperSize', { 
